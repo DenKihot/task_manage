@@ -17,14 +17,15 @@
     
     <h1>Task Manage <img src="images/down-grey.svg" alt="down"></h1>
     
-    <input type="text" maxlength="30">
-    <img src="images/mood_black_24dp.svg" alt="close" class='task-manage__delite happy'> 
-    <img src="images/mood_bad_black_24dp.svg" alt="close" class='task-manage__delite sad'>
-    <!-- <button><img src="images/button-blue.svg" alt="add"> <img src="images/plus-blue.svg" alt="plus"></button> -->
-    <!-- new button start-->
-    <button type="button" class="task-manage__button yellow">Add</button>
-    <button type="button" class="task-manage__button green">Add</button>
-    <!-- new button end -->
+    <!-- <div class="task-manage__input-area"> -->
+      <input type="text" maxlength="30" class="task-manage__input">
+      <img src="images/mood_black_24dp.svg" alt="close" class='task-manage__delite happy'> 
+    <!-- </div> -->
+      
+    <div class="task-manage__main-area"></div>
+   
+    <button type="button" class="task-manage__button">Add</button>
+ 
   </div>
   <script src="script.js"></script>
 </body>

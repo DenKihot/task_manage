@@ -1,33 +1,29 @@
-let btns = document.querySelectorAll(".task-manage__button")
+let btn = document.querySelector(".task-manage__button")
 let roof = document.querySelector(".task-manage__rooftop")
-let smiles = document.querySelectorAll(".task-manage__delite")
+let smile = document.querySelector(".task-manage__delite")
+let input = document.querySelector(".task-manage__input")
+let mainDiv = document.querySelector(".task-manage__main-area")
+const arr = []
+id = 0
 
-btns[0].addEventListener('click', () => {
-  setTimeout(() => {
-    btns[0].style.display = 'none';
-    btns[1].style.display = 'block';  
-    roof.style.background = 'linear-gradient(132deg, #F4D03F 0%, #16A085 100%)';
-  }, 200);  
 
+smile.addEventListener('click', (event) => {
+  if (event.target.src.split('/')[11] === 'mood_black_24dp.svg') {
+    event.target.src = 'images/mood_bad_black_24dp.svg'
+  } else {
+    event.target.src = 'images/mood_black_24dp.svg'
+  }
+ 
+ })
+
+
+
+btn.addEventListener('click', (event) => {
+  arr.push({val: input.value, id: id++})
+  console.log(arr)
+  let newInput = document.createElement('input')
+  newInput.classList.add('.task-manage__input')
+  newInput.value = input.value
+  mainDiv.append(newInput)
 })
 
-btns[1].addEventListener('click', () => {
-  setTimeout(() => {
-    btns[1].style.display = 'none';
-    btns[0].style.display = 'block';  
-    roof.style.background = "linear-gradient(90deg, #FAD961 0%, #F76B1C 100%)";
-  }, 200);
-})
-
-smiles[0].addEventListener('click', () => {
-  
-  smiles[0].style.display = 'none';
-  smiles[1].style.display = 'block';  
-
-})
-smiles[1].addEventListener('click', () => {
-  
-  smiles[1].style.display = 'none';
-  smiles[0].style.display = 'block';  
-
-})
