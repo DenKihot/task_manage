@@ -1,29 +1,66 @@
-let btn = document.querySelector(".task-manage__button")
+let btns = document.querySelector(".task-manage__button")
 let roof = document.querySelector(".task-manage__rooftop")
-let smile = document.querySelector(".task-manage__delite")
+let smiles = document.querySelectorAll(".task-manage__delite")
 let input = document.querySelector(".task-manage__input")
 let mainDiv = document.querySelector(".task-manage__main-area")
-const arr = []
-id = 0
 
+const state = {
+    id: 0,
+    arr: []
+}
 
-smile.addEventListener('click', (event) => {
-  if (event.target.src.split('/')[11] === 'mood_black_24dp.svg') {
-    event.target.src = 'images/mood_bad_black_24dp.svg'
-  } else {
-    event.target.src = 'images/mood_black_24dp.svg'
-  }
- 
- })
-
-
-
-btn.addEventListener('click', (event) => {
-  arr.push({val: input.value, id: id++})
-  console.log(arr)
-  let newInput = document.createElement('input')
-  newInput.classList.add('.task-manage__input')
-  newInput.value = input.value
-  mainDiv.append(newInput)
+btns.addEventListener('click', (event) => {
+    addElement()
+    render()
 })
 
+function deleteHandler(id){    // удаление поля в массиве
+    state.arr.splice(id, 1)
+}
+
+function addElement(){   // добавление поля в массиве
+    state.arr.push({val: input.value, id: state.id++})
+}
+
+function render() {  // отрисовка на основании состояния
+    let div = document.createElement('div')
+    state.arr.forEach((elem, index) => {
+        div.append(createNewBlock(elem.val, index))
+    })
+    mainDiv.innerHTML = ''
+    mainDiv.append(div)
+}
+
+function createNewBlock(val, id) {       //создание поля
+    const newBlock = document.createElement('div')
+    const newInput = document.createElement('input')
+    const newImg = document.createElement('div')
+    newBlock.classList.add('task-block')
+    newInput.classList.add('task-manage__input')
+    newInput.value = val
+    newImg.classList.add('task-manage__delite')
+    newImg.classList.add('happy')
+
+    newBlock.append(newInput)
+    newBlock.append(newImg)
+
+    addAnimateSmile(newImg, id)
+
+    return newBlock
+}
+
+function addAnimateSmile(block, id) {       //удаление поля
+    block.addEventListener('click', (event) => {
+        console.log(event.target.style)
+        if (event.target.style.backgroundImage === `url("images/mood_bad_black_24dp.svg")`) {
+            event.target.style.backgroundImage = `url('images/mood_black_24dp.svg')`
+        } else {
+            event.target.style.backgroundImage = `url('images/mood_bad_black_24dp.svg')`
+            deleteHandler(id)
+            render()
+        }
+    })
+}
+
+
+addAnimateSmile(smiles[0])

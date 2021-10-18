@@ -7,7 +7,6 @@
    src: url("fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf");
  }
 
-
  .task-manage__main-block {
   position: relative;
   width: 336px;
@@ -27,7 +26,8 @@
 .task-manage__rooftop {
   width: 100%;
   height: 28px;
-  background-image: linear-gradient(132deg, #F4D03F 0%, #16A085 100%);
+  background-image: linear-gradient(90deg, #add100 0%, #7b920a 100%);
+  
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -45,9 +45,6 @@
   left: 280px;
   bottom: 5px;
 }
-.task-manage__input-area {
-  position: relative;
-}
 .task-manage__main-block input {
   width: 266px;
   height: 40px;
@@ -59,24 +56,35 @@
   border-radius: 5px;
   padding-left: 20px;
   font-family: "Comfortaa", sans-serif;
+  
+
+
 }
 /* exit img */
 .happy {
   position: absolute;
-  top: 130px; right: 30px;
+  top: 42%;
+  right: 30px;
 }
+
+.task-manage__delite{
+  background: url("./images/mood_black_24dp.svg") no-repeat center center / contain;
+  width: 20px;
+  height: 20px;
+}
+
 .sad {
   position: absolute;
   top: calc(50% + 12px);
   right: 30px;
 }
 .task-manage__main-block button {
+  position: relative;
   left: 50%;
   top: 15px;
   transform: translateX(-50%);
-  margin-bottom: 20px;
 }
-
+/* new button code */
 .task-manage__button {
   display: block;
   font-size: 20px;
@@ -91,6 +99,7 @@
   background-color: rgba(0, 0, 0, 0);
 }
 
+
 .task-manage__button::after {
   content: "";
   width: 100%;
@@ -99,13 +108,19 @@
   position: absolute;
   height: 100%;
   transition: 0.3s;
+}
+.task-manage__button::after {
   background-color: #7fff00;
+
   top: 7px;
   right: 7px;
   transition: 0.3s;
 }
-
 .task-manage__button:hover::after {
   top: 0px;
   left: 0px;
 }
+
+ .task-block{
+   position: relative;
+ }
