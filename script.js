@@ -3,16 +3,42 @@ let roof = document.querySelector(".task-manage__rooftop")
 let smiles = document.querySelectorAll(".task-manage__delite")
 let input = document.querySelector(".task-manage__input")
 let mainDiv = document.querySelector(".task-manage__main-area")
+let sortBtn = document.querySelector(".task-manage__sort")
+
 
 const state = {
-    id: 0,
-    arr: []
+    id: 4,
+    arr: [{val:'hello', id: 0},{val:'bye', id: 1},{val:'hello', id: 2}, {val:'danila', id: 3}, {val:'aleksei', id: 4}],
+    arrCopy: [],
+    flag:false
 }
 
-btns.addEventListener('click', (event) => {
+btns.addEventListener('click', () => {
     addElement()
     render()
 })
+
+sortBtn.addEventListener('click', () => {
+   if(!state.flag){
+          state.arrCopy = [...state.arr]
+          sortOf()
+          state.flag = true
+   } else{
+          state.arr = [...state.arrCopy]
+          state.flag = false
+
+   }
+  render()
+  console.log(state)
+})
+
+function sortOf() {
+  state.arr.sort((a, b) => {
+    if(a.val > b.val)
+      return 1
+    return -1  
+  })
+}
 
 function deleteHandler(id){    // удаление поля в массиве
     state.arr.splice(id, 1)
