@@ -8,7 +8,7 @@ let sortBtn = document.querySelector(".task-manage__sort")
 
 const state = {
     id: 4,
-    arr: [{val:'hello', id: 0},{val:'bye', id: 1},{val:'hello', id: 2}, {val:'danila', id: 3}, {val:'aleksei', id: 4}],
+    arr: [],
     arrCopy: [],
     flag:false
 }
