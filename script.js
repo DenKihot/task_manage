@@ -42,10 +42,12 @@ function sortOf() {
 
 function deleteHandler(id){    // удаление поля в массиве
     state.arr.splice(id, 1)
+    state.arrCopy = [...state.arr]
 }
 
 function addElement(){   // добавление поля в массиве
     state.arr.push({val: input.value, id: state.id++})
+    state.arrCopy = [...state.arr]
 }
 
 function render() {  // отрисовка на основании состояния
